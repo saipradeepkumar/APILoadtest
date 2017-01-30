@@ -115,17 +115,26 @@ class Requester:
 				
 if __name__ == '__main__':
 	try:
-		ConfigureableArguments=sys.argv[1:]
-		num_threads=10
-		num_request=100
-		if(len(ConfigureableArguments)>0):
-			if(num_threads!='' & int(ConfigureableArguments[0])>10):
-				num_threads=int(ConfigureableArguments[0])
-				print num_threads
+		UrlToTest=raw_input('Please Enter URL To do Load Test:')
+		if(UrlToTest==''):
+			print "You Had not entered url to do load test"
+			raise Exception('You Had not entered url,so we are terminating the program!')
+		num_threads=raw_input('Enter how many Virtual Users you want to create(please enter number greater than are equal to 10):')
+		if ( num_threads!=''):
+			if(int(num_threads)>=10):
+				num_threads=int(num_threads)
 		else:
 			print " you have not entered your desired no of workers to create .so we started with default value 10"
+			num_threads=10	
+		num_request=raw_input('Enter how mant request you want to make to the given url(please enter number greater than are equal to 100):')
+		if (num_request!=''):
+			if (int(num_request)>=100):
+				num_request=int(num_request)
+		else:
+			print " you have not entered your desired no of requests to make .so we started with default value 100"
+			num_request=100
 		pool = ThreadPool(num_threads)# This Creates The Thread Pool Object With num_threads as input and create the threads
-		Requestobj=Requester("http://surya-interview.appspot.com/message","gps@surya-soft.com",num_request)
+		Requestobj=Requester(UrlToTest,"gps@surya-soft.com",num_request)
 		for _ in range(num_request):
 			pool.add_task(Requestobj.MakeRequest)
 		pool.wait_completion()
