@@ -22,8 +22,8 @@ Modules To Be Installed Before Running:
 
 Instructions  To Be Followed While Executing:
 
-	1.While executing the file you have to pass how many threads you want to create to make request i.e it will create that many number of virtual users.
-
+	1.While executing the file you have to pass how many threads you want to create to make request
+	i.e it will create that many number of virtual users.
 	2.if you have not pass the vale by default it will take 10 as value.
 	
 OutPut:
