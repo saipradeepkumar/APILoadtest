@@ -28,6 +28,7 @@ Instructions  To Be Followed While Executing:
 	
 OutPut:
 
-	1.Once it finishes the load test for 100 request, it will print the stastics log of the test with all required values we need on the console for each api
+	1.Once it finishes the load test for 100 request,
+	it will print the stastics log of the test with all required values we need on the console for each api
 
 
